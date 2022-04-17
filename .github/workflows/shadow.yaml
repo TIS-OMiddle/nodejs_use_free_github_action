@@ -1,0 +1,24 @@
+name: ss打卡
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+jobs:
+  ss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          cache: "yarn"
+      - run: yarn install
+      - name: Run script
+        run: yarn shadow
+        env:
+          SELF_EMAIL: ${{ secrets.SELF_EMAIL }}
+          SELF_EMAIL_TOKEN: ${{ secrets.SELF_EMAIL_TOKEN }}
+          TARGET_EMAIL: ${{ secrets.TARGET_EMAIL }}
+          SHADOW_TOKEN: ${{ secrets.SHADOW_TOKEN }}

@@ -4,11 +4,13 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "tuan": "tsc && node ./dist/tuan.js"
+    "tuan": "tsc && node ./dist/tuan.js",
+    "shadow": "tsc && node ./dist/shadow.js"
   },
   "dependencies": {
     "@types/qs": "^6.9.7",
     "axios": "^0.26.1",
+    "cookie": "^0.5.0",
     "dotenv": "^16.0.0",
     "lodash": "^4.17.21",
     "nodemailer": "^6.7.3",
@@ -17,6 +19,7 @@
     "typescript": "^4.6.3"
   },
   "devDependencies": {
+    "@types/cookie": "^0.5.0",
     "@types/node": "^17.0.23",
     "@types/nodemailer": "^6.4.4"
   }

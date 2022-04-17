@@ -1,7 +1,7 @@
-import axios, { AxiosRequestConfig } from "axios"
 import qs from 'qs'
 import { config } from "./const"
 import { sendDefaultMail } from "./mail"
+import { request } from './utils'
 
 const apiHeaders = {
   'Host': 'tuanapi.12355.net',
@@ -32,9 +32,7 @@ const youthstudyHeaders = {
   'Accept-Language': 'zh-CN,zh;q=0.9,en-US;q=0.8,en;q=0.7'
 }
 
-function request<T = any>(config: AxiosRequestConfig) {
-  return axios(config).then(res => res.data) as unknown as T
-}
+
 async function getSign(mid: string) {
   const data = await request<{ youthLearningUrl: string }>({ method: 'get', url: `https://tuanapi.12355.net/questionnaire/getYouthLearningUrl`, headers: apiHeaders, params: { mid } })
   return data.youthLearningUrl.split('?')[1].slice(5)

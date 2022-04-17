@@ -7,5 +7,6 @@ export const config = {
   selfEmailToken: process.env.SELF_EMAIL_TOKEN,
   targetEmail: process.env.TARGET_EMAIL,
   mid: process.env.MID,
+  shadowToken: process.env.SHADOW_TOKEN,
   dev: !!process.env.DEV,
 }
