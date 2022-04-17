@@ -1,4 +1,4 @@
-name: schedule
+name: 团课打卡
 
 on:
   schedule:
