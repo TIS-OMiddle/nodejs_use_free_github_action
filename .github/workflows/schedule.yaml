@@ -13,10 +13,10 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: "14"
-          cache: "npm"
-      - run: npm install
+          cache: "yarn"
+      - run: yarn install
       - name: Run script
-        run: npm run tuan
+        run: yarn tuan
         env:
           SELF_EMAIL: ${{ secrets.SELF_EMAIL }}
           SELF_EMAIL_TOKEN: ${{ secrets.SELF_EMAIL_TOKEN }}
