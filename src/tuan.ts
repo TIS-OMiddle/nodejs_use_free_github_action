@@ -1,7 +1,7 @@
 import qs from 'qs'
 import { config } from "./const"
 import { sendDefaultMail } from "./mail"
-import { request } from './utils'
+import { execute, request } from './utils'
 
 const apiHeaders = {
   'Host': 'tuanapi.12355.net',
@@ -49,7 +49,7 @@ async function saveHistory(token: string, chapterId: string) {
   return await request({ method: 'post', url: "https://youthstudy.12355.net/apih5/api/young/course/chapter/saveHistory", headers: { ...youthstudyHeaders, "X-Litemall-Token": token }, data: qs.stringify({ chapterId }) })
 }
 
-(async function () {
+execute('tuan', async () => {
   const sign = await getSign(config.mid)
   const token = await getToken(sign)
   const chapterId = await getChapterId()
@@ -58,4 +58,4 @@ async function saveHistory(token: string, chapterId: string) {
     subject: `tuan课打卡:${res.msg}`,
     text: JSON.stringify(res)
   })
-})()
+})

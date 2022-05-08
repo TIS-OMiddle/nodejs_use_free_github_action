@@ -1,0 +1,24 @@
+name: 原神打卡
+
+on:
+  schedule:
+    - cron: "0 14 * * *"
+  workflow_dispatch:
+
+jobs:
+  ss:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: "14"
+          cache: "yarn"
+      - run: yarn install
+      - name: Run script
+        run: yarn yuanshen
+        env:
+          SELF_EMAIL: ${{ secrets.SELF_EMAIL }}
+          SELF_EMAIL_TOKEN: ${{ secrets.SELF_EMAIL_TOKEN }}
+          TARGET_EMAIL: ${{ secrets.TARGET_EMAIL }}
+          MI_HA_YO_TOKEN: ${{ secrets.MI_HA_YO_TOKEN }}

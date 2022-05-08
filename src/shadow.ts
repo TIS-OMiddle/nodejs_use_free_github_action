@@ -1,6 +1,6 @@
 import { config } from "./const";
 import { sendDefaultMail } from "./mail";
-import { request, requestCookies } from "./utils";
+import { execute, request, requestCookies } from "./utils";
 import cookie from 'cookie'
 import qs from "qs";
 
@@ -32,7 +32,7 @@ const dakaHeaders = {
   'sec-ch-ua-platform': '"Windows"'
 };
 
-(async function () {
+execute('shadow', async () => {
   const cookies = await requestCookies({
     method: 'post',
     url: 'https://www.shadowsky.fun/auth/login',
@@ -49,5 +49,6 @@ const dakaHeaders = {
     subject: `ss打卡:${res.msg}`,
     text: JSON.stringify(res)
   })
-})()
+})
+
 
