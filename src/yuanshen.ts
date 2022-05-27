@@ -42,8 +42,8 @@ async function daka() {
 
 execute('yuanshen', async () => {
   const res = await daka()
-  sendDefaultMail({
-    subject: `原神打卡:${res.message}`,
-    text: JSON.stringify(res)
-  })
+//   sendDefaultMail({
+//     subject: `原神打卡:${res.message}`,
+//     text: JSON.stringify(res)
+//   })
 })
