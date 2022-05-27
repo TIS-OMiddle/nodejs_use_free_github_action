@@ -45,10 +45,10 @@ execute('shadow', async () => {
     url: 'https://www.shadowsky.fun/user/checkin',
     headers: { ...dakaHeaders, Cookie: qs.stringify({ sid }) },
   })
-  sendDefaultMail({
-    subject: `ss打卡:${res.msg}`,
-    text: JSON.stringify(res)
-  })
+//   sendDefaultMail({
+//     subject: `ss打卡:${res.msg}`,
+//     text: JSON.stringify(res)
+//   })
 })
 
 
