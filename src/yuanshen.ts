@@ -49,7 +49,7 @@ async function daka() {
 
 execute('yuanshen', async () => {
   const res = await daka()
-  if (res.ret_code !== 0) {
+  if (res.retcode !== 0) {
     throw res
   }
 })
